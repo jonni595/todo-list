@@ -40,7 +40,7 @@ function addTodo(todo) {
       updateLS();
     });
 
-    todoUl.appendChild(todoLi);
+    todoUl.appendChild(todoLi).classList.add('tasks-todo')
 
     input.value = "";
 
