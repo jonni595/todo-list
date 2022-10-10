@@ -114,6 +114,8 @@ button:hover {
   justify-content: space-between;
 }
 
+/**Todo clase por asignar*/
+
 .tasks-todo {
   position: relative;
   padding: 10px;
