@@ -1,0 +1,153 @@
+$primary: #5c5470;
+$secondary: #b9b4c7;
+$bg-color: #352f44;
+$txt-color: #faf0e6;
+$bg-input: #584e71;
+$ff-base: "Roboto", sans-serif;
+
+@mixin dimension($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex($flex-direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+/* Boilerplate */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background-color: $bg-color;
+  color: $txt-color;
+  font-family: $ff-base;
+}
+
+.container {
+  display: grid;
+  align-content: space-between;
+  justify-content: center;
+  position: relative;
+
+  &__title {
+    text-align: center;
+    font-size: 70px;
+    color: $primary;
+  }
+
+  &__task {
+    @include dimension(800px, 600px);
+    @include flex(column, center, space-between);
+
+    // border: 1px solid tomato;
+
+    input[type="text"] {
+      @include dimension(calc(800px / 2), 50px);
+      margin: auto 0;
+      border: none;
+      outline: none;
+      border-radius: 3px;
+      background: $bg-input;
+      padding: 15px 20px;
+      font-size: 20px;
+      color: $secondary;
+      font-family: $ff-base;
+
+      &::placeholder {
+        color: $secondary;
+      }
+    }
+  }
+
+  &__list {
+    @include dimension(100%, calc(600px / 2));
+    @include flex(column, center, flex-start);
+    // border: 1px solid #ccc;
+
+    ul {
+      list-style: none;
+      font-size: 16px;
+    }
+
+    .items {
+      @include flex(row, center, space-between);
+      @include dimension(400px, 30px);
+      padding: 20px 15px;
+      background: $primary;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      // border: 1px solid tomato;
+
+      li + button {
+        border: none;
+        margin-left: 5px;
+        border-radius: 3px;
+        padding: 2px 15px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  button[type="button"] {
+    @include dimension(50px, 50px);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(-550%, -150%);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: all 100ms ease-in;
+
+    &:hover {
+      box-shadow: 4px 2px 15px 0px rgba(246, 247, 247, 0.3);
+    }
+
+    &:hover {
+      &::after {
+        color: $bg-color;
+      }
+    }
+
+    &::after {
+      content: "+";
+      font-size: 30px;
+      color: #ccc;
+      transition: all 100ms ease-in;
+    }
+  }
+}
+
+.modal {
+  @include dimension(300px, 100px);
+  @include flex(column, center, space-evenly);
+  z-index: 100;
+  background: $secondary;
+  transform: translate(210%, 350%);
+  border-radius: 5px;
+
+  h2 {
+    font-size: 18px;
+  }
+
+  button {
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+}
