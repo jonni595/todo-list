@@ -1,2 +1,2 @@
 # todo-list 📝
-### tasks app
+### tasks app.
