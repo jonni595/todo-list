@@ -1,41 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://i.icomoon.io/public/temp/e8f4cc4145/UntitledProject/style.css">
-    <title>Todo App</title>
+    <title>Vite + React + TS</title>
   </head>
   <body>
-    <header class="header-container">
-      <h1>Todo App</h1>
-    </header>
-
-    <div class="container">
-      <div class="input-container">
-        <form id="form">
-          <input
-            type="text"
-            id="input"
-            placeholder="Enter your todo"
-            autocomplete="off"
-          />
-          <button id="button">Add</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="container-list">
-      <div class="container-tasks">
-        <ul id="todos">
-          <!-- <li>Learn React JS</li>
-          <span class="icon-checkmark"></span>
-          <span class="icon-bin2"></span> -->
-        </ul>
-      </div>
-    </div>
-    <script src="./script.js"></script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
