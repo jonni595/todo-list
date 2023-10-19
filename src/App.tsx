@@ -1,8 +1,9 @@
 import { useState } from "react";
-import Modal from "./components/Modal";
-import useShowMenu from "./hooks/useShowMenu";
+import { Modal, TaskList } from "./components";
+import { useChangeInput, useShowMenu } from "./hooks";
+import { getLimit } from "./utils/getLimit";
 
-interface Artist {
+interface Todo {
   id: number;
   name: string;
 }
@@ -10,13 +11,9 @@ interface Artist {
 let nextID = 0;
 
 const App = () => {
-  const [artists, setArtists] = useState<Artist[]>([]);
-  const [name, setName] = useState("");
+  const [todos, setTodos] = useState<Todo[]>([]);
   const { isModalOpen, toggleMenu } = useShowMenu();
-
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
+  const { name, handleChangeName, clearInput } = useChangeInput();
 
   const handleClick = () => {
     if (!name) {
@@ -25,12 +22,14 @@ const App = () => {
     }
 
     const upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
-    setArtists([{ id: nextID++, name: upperCaseName }, ...artists]);
-    setName("");
+    const value = getLimit(upperCaseName);
+
+    setTodos([{ id: nextID++, name: value }, ...todos]);
+    clearInput();
   };
 
   const handleRemove = (id: number) => {
-    setArtists(artists.filter((artist) => artist.id !== id));
+    setTodos(todos.filter((artist) => artist.id !== id));
   };
 
   return (
@@ -42,17 +41,19 @@ const App = () => {
           <input
             type="text"
             value={name}
-            placeholder="todos..."
+            placeholder="create new task"
             onChange={handleChangeName}
           />
 
           <div className="container__list">
             <ul>
-              {artists.map(({ id, name }) => (
-                <div className="items" key={id}>
-                  <li>{name}</li>
-                  <button onClick={() => handleRemove(id)}>Delete</button>
-                </div>
+              {todos.map(({ id, name }) => (
+                <TaskList
+                  key={id}
+                  item={name}
+                  onClick={() => handleRemove(id)}
+                  text="Delete"
+                />
               ))}
             </ul>
           </div>
