@@ -1,17 +1,16 @@
 interface Task {
-	item: string;
-	text: string;
-	onClick: () => void;
+  item: string;
+  text: string;
+  onClick: () => void;
 }
-
 
 const TaskList: React.FC<Task> = ({ item, text, onClick }) => {
   return (
     <div className="items">
-			<li>{item}</li>
-			<button onClick={onClick}>{text}</button>
+      <li>{item}</li>
+      <button onClick={onClick}>{text}</button>
     </div>
-  )
-}
+  );
+};
 
-export default TaskList
+export default TaskList;
