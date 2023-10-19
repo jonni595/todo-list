@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Modal from "./components/Modal";
 import useShowMenu from "./hooks/useShowMenu";
+import useChangeInput from "./hooks/useChangeInput";
 
 interface Artist {
   id: number;
@@ -10,13 +11,9 @@ interface Artist {
 let nextID = 0;
 
 const App = () => {
-  const [artists, setArtists] = useState<Artist[]>([]);
-  const [name, setName] = useState("");
+  const [todos, setTodos] = useState<Artist[]>([]);
   const { isModalOpen, toggleMenu } = useShowMenu();
-
-  const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
+  const { name, handleChangeName, clearInput } = useChangeInput();
 
   const handleClick = () => {
     if (!name) {
@@ -25,12 +22,12 @@ const App = () => {
     }
 
     const upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
-    setArtists([{ id: nextID++, name: upperCaseName }, ...artists]);
-    setName("");
+    setTodos([{ id: nextID++, name: upperCaseName }, ...todos]);
+    clearInput();
   };
 
   const handleRemove = (id: number) => {
-    setArtists(artists.filter((artist) => artist.id !== id));
+    setTodos(todos.filter((artist) => artist.id !== id));
   };
 
   return (
@@ -48,7 +45,7 @@ const App = () => {
 
           <div className="container__list">
             <ul>
-              {artists.map(({ id, name }) => (
+              {todos.map(({ id, name }) => (
                 <div className="items" key={id}>
                   <li>{name}</li>
                   <button onClick={() => handleRemove(id)}>Delete</button>
