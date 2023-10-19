@@ -2,6 +2,7 @@ import { useState } from "react";
 import Modal from "./components/Modal";
 import useShowMenu from "./hooks/useShowMenu";
 import useChangeInput from "./hooks/useChangeInput";
+import TaskList from "./components/TaskList";
 interface Todo {
   id: number;
   name: string;
@@ -45,10 +46,12 @@ const App = () => {
           <div className="container__list">
             <ul>
               {todos.map(({ id, name }) => (
-                <div className="items" key={id}>
-                  <li>{name}</li>
-                  <button onClick={() => handleRemove(id)}>Delete</button>
-                </div>
+                <TaskList
+                  key={id}
+                  item={name}
+                  onClick={() => handleRemove(id)}
+                  text="Delete"
+                />
               ))}
             </ul>
           </div>
