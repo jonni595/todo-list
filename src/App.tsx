@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Modal from "./components/Modal";
-import useShowMenu from "./hooks/useShowMenu";
-import useChangeInput from "./hooks/useChangeInput";
-import TaskList from "./components/TaskList";
+import { Modal, TaskList } from './components';
+import { useChangeInput, useShowMenu } from "./hooks";
+
 interface Todo {
   id: number;
   name: string;

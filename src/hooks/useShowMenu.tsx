@@ -13,4 +13,4 @@ const useShowMenu = () => {
   };
 };
 
-export default useShowMenu;
+export { useShowMenu };

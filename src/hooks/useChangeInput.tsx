@@ -18,4 +18,4 @@ const useChangeInput = () => {
   };
 };
 
-export default useChangeInput;
+export { useChangeInput };

@@ -12,4 +12,4 @@ const Modal: React.FC<ModalProps> = ({ isOpen, showModal }) => {
   );
 };
 
-export default Modal;
+export { Modal };

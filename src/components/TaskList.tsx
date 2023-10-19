@@ -13,4 +13,4 @@ const TaskList: React.FC<Task> = ({ item, text, onClick }) => {
   );
 };
 
-export default TaskList;
+export { TaskList };
