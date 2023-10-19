@@ -3,6 +3,7 @@ $secondary: #b9b4c7;
 $bg-color: #352f44;
 $txt-color: #faf0e6;
 $bg-input: #584e71;
+$bd-input: #817799;
 $ff-base: "Roboto", sans-serif;
 
 @mixin dimension($width, $height) {
@@ -58,9 +59,8 @@ button {
 
   &__title {
     text-align: center;
-    font-size: 70px;
+    font-size: 100px;
     color: $primary;
-    text-shadow: 2px 0px 2px #1d1c1c;
   }
 
   &__task {
@@ -68,7 +68,6 @@ button {
     max-width: 800px;
     @include flex(column, center, space-between);
     padding: 10px 20px;
-
 
     input[type="text"] {
       @include dimension(calc(800px / 2), 50px);
@@ -80,9 +79,14 @@ button {
       border: none;
       outline: none;
       border-radius: 3px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
       &::placeholder {
         color: $secondary;
+      }
+
+      &:focus {
+        outline: 3px solid $bd-input;
       }
     }
   }
@@ -93,7 +97,6 @@ button {
 
     ul {
       list-style: none;
-      font-size: 16px;
     }
 
     .items {
@@ -103,6 +106,11 @@ button {
       background: $primary;
       border-radius: 5px;
       margin-bottom: 5px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+      li {
+        font-size: 18px;
+      }
 
       li + button {
         border: none;

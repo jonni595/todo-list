@@ -38,9 +38,8 @@ button {
 }
 .container__title {
   text-align: center;
-  font-size: 70px;
+  font-size: 100px;
   color: #5c5470;
-  text-shadow: 2px 0px 2px #1d1c1c;
 }
 .container__task {
   width: 100%;
@@ -63,9 +62,13 @@ button {
   border: none;
   outline: none;
   border-radius: 3px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .container__task input[type=text]::placeholder {
   color: #b9b4c7;
+}
+.container__task input[type=text]:focus {
+  outline: 3px solid #817799;
 }
 .container__list {
   width: 100%;
@@ -77,7 +80,6 @@ button {
 }
 .container__list ul {
   list-style: none;
-  font-size: 16px;
 }
 .container__list .items {
   display: flex;
@@ -90,6 +92,10 @@ button {
   background: #5c5470;
   border-radius: 5px;
   margin-bottom: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.container__list .items li {
+  font-size: 18px;
 }
 .container__list .items li + button {
   border: none;
