@@ -2,8 +2,7 @@ import { useState } from "react";
 import Modal from "./components/Modal";
 import useShowMenu from "./hooks/useShowMenu";
 import useChangeInput from "./hooks/useChangeInput";
-
-interface Artist {
+interface Todo {
   id: number;
   name: string;
 }
@@ -11,7 +10,7 @@ interface Artist {
 let nextID = 0;
 
 const App = () => {
-  const [todos, setTodos] = useState<Artist[]>([]);
+  const [todos, setTodos] = useState<Todo[]>([]);
   const { isModalOpen, toggleMenu } = useShowMenu();
   const { name, handleChangeName, clearInput } = useChangeInput();
 
@@ -39,7 +38,7 @@ const App = () => {
           <input
             type="text"
             value={name}
-            placeholder="todos..."
+            placeholder="create new task"
             onChange={handleChangeName}
           />
 
