@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Modal, TaskList } from './components';
+import { Modal, TaskList } from "./components";
 import { useChangeInput, useShowMenu } from "./hooks";
+import { getLimit } from "./utils/getLimit";
 
 interface Todo {
   id: number;
@@ -21,7 +22,9 @@ const App = () => {
     }
 
     const upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
-    setTodos([{ id: nextID++, name: upperCaseName }, ...todos]);
+    const value = getLimit(upperCaseName);
+
+    setTodos([{ id: nextID++, name: value }, ...todos]);
     clearInput();
   };
 
