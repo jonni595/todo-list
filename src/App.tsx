@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Modal, TaskList } from "./components";
 import { useChangeInput, useShowMenu } from "./hooks";
 import { getLimit } from "./utils/getLimit";
@@ -31,25 +31,6 @@ const App = () => {
   const handleRemove = (id: number) => {
     setTodos(todos.filter((artist) => artist.id !== id));
   };
-
-    const loadTodos = () => {
-    const storedTodos = localStorage.getItem("todos");
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  };
-
-  const saveTodos = () => {
-    localStorage.setItem("todos", JSON.stringify(todos));
-  };
-
-  useEffect(() => {
-    loadTodos();
-  }, []);
-
-  useEffect(() => {
-    saveTodos();
-  }, [todos]);
 
   return (
     <>
