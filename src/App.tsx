@@ -3,7 +3,7 @@ import { Modal, TaskList } from "./components";
 import { useChangeInput, useShowMenu } from "./hooks";
 import { getLimit } from "./utils/getLimit";
 
-interface Todo {
+interface Tasks {
   id: number;
   name: string;
 }
@@ -11,7 +11,7 @@ interface Todo {
 let nextID = 0;
 
 const App = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [tasks, setTasks] = useState<Tasks[]>([]);
   const { isModalOpen, toggleMenu } = useShowMenu();
   const { name, handleChangeName, clearInput } = useChangeInput();
 
@@ -24,12 +24,12 @@ const App = () => {
     const upperCaseName = name.charAt(0).toUpperCase() + name.slice(1);
     const value = getLimit(upperCaseName);
 
-    setTodos([{ id: nextID++, name: value }, ...todos]);
+    setTasks([{ id: nextID++, name: value }, ...tasks]);
     clearInput();
   };
 
   const handleRemove = (id: number) => {
-    setTodos(todos.filter((artist) => artist.id !== id));
+    setTasks(tasks.filter((artist) => artist.id !== id));
   };
 
   return (
@@ -47,7 +47,7 @@ const App = () => {
 
           <div className="container__list">
             <ul>
-              {todos.map(({ id, name }) => (
+              {tasks.map(({ id, name }) => (
                 <TaskList
                   key={id}
                   item={name}
