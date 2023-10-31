@@ -1,15 +1,22 @@
+import { TasksProps } from "../model";
+
 interface Task {
-  item: string;
-  text: string;
-  onClick: () => void;
+  tasks: TasksProps[];
+  onChangeTask: (task: TasksProps) => void;
+  onDeleteTask: (id: string) => void;
 }
 
-const TaskList: React.FC<Task> = ({ item, text, onClick }) => {
+const TaskList: React.FC<Task> = ({ tasks, onChangeTask, onDeleteTask }) => {
   return (
-    <div className="items">
-      <li>{item}</li>
-      <button onClick={onClick}>{text}</button>
-    </div>
+    <section className="container__todo-list">
+      <ul>
+        {tasks.map((task) => (
+          <li key={task.id}>
+            <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 };
 

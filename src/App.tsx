@@ -6,6 +6,9 @@ const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
 
   const handleAddTask = (text: string) => {
+    if (!text || text.length < 5) {
+      return alert("complete the field");
+    }
     setTasks([...tasks, { id: crypto.randomUUID(), text, done: false }]);
   };
 
