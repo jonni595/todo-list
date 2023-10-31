@@ -15,6 +15,7 @@ const Task: React.FC<TaskProps> = ({ task, onChange, onDelete }) => {
     taskContent = (
       <>
         <input
+          type="text"
           value={task.text}
           onChange={(e) => {
             onChange({
@@ -36,7 +37,7 @@ const Task: React.FC<TaskProps> = ({ task, onChange, onDelete }) => {
   }
 
   return (
-    <label>
+    <div className="task-list">
       <input
         type="checkbox"
         checked={task.done}
@@ -49,7 +50,7 @@ const Task: React.FC<TaskProps> = ({ task, onChange, onDelete }) => {
       />
       {taskContent}
       <button onClick={() => onDelete(task.id)}>Delete</button>
-    </label>
+    </div>
   );
 };
 

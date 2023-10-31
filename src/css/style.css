@@ -61,7 +61,7 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  color: #fff;
+  color: #faf0e6;
   background: #584e71;
   border: none;
   position: fixed;
@@ -82,6 +82,44 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.container__todo-list ul {
+  list-style: none;
+}
+.container__todo-list ul li {
+  color: #b9b4c7;
+}
+.container__todo-list .task-list {
+  width: 400px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 0.5rem;
+}
+.container__todo-list .task-list button {
+  background: #584e71;
+  color: #b9b4c7;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  font-weight: 600;
+  font-family: inherit;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.container__todo-list .task-list input[type=checkbox] {
+  margin-right: 10px;
+}
+.container__todo-list .task-list input[type=text] {
+  background: #584e71;
+  color: #b9b4c7;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  font-family: inherit;
 }
 
 @keyframes float {

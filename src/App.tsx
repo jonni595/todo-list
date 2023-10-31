@@ -10,6 +10,7 @@ const App = () => {
     if (!text || text.length < 5) {
       return alert("complete the field");
     }
+    text = text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
     setTasks([...tasks, { id: crypto.randomUUID(), text, done: false }]);
   };
 

@@ -80,7 +80,7 @@ body {
       font-size: 30px;
       @include dimension(60px, 60px);
       border-radius: 50%;
-      color: #fff;
+      color: $txt-color;
       background: $bg-input;
       border: none;
       position: fixed;
@@ -100,6 +100,46 @@ body {
   &__todo-list {
     @include dimension(100%, inherit);
     @include flex(column, center, center);
+
+    ul {
+      list-style: none;
+
+      li {
+        color: $secondary;
+      }
+    }
+
+    .task-list {
+      @include dimension(400px, 50px);
+      @include flex(row, center, flex-start);
+      font-size: 0.5rem;
+
+      button {
+        background: $bg-input;
+        color: $secondary;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        font-weight: 600;
+        font-family: inherit;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+
+      input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      input[type="text"] {
+        background: $bg-input;
+        color: $secondary;
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: none;
+        outline: none;
+        font-family: inherit;
+      }
+    }
   }
 }
 

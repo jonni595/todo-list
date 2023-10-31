@@ -17,7 +17,6 @@ const AddTask: React.FC<AddTaskProps> = ({ onAddTask }) => {
       <input
         value={text}
         placeholder="create new task"
-        autoCapitalize="on"
         onChange={handleChange}
       />
       <button
