@@ -20,7 +20,12 @@ const AddTask: React.FC<AddTaskProps> = ({ onAddTask }) => {
         autoCapitalize="on"
         onChange={handleChange}
       />
-      <button onClick={() => onAddTask(text)}>
+      <button
+        onClick={() => {
+          setText("");
+          onAddTask(text);
+        }}
+      >
         <span className="button-text">+</span>
       </button>
     </section>
