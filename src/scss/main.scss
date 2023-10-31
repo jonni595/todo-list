@@ -60,12 +60,15 @@ body {
       font-size: 18px;
       padding: 10px 15px;
       border: none;
-      outline: none;
       border-radius: 3px;
       background: $bg-input;
-      color: $txt-color;
+      color: $secondary;
       font-family: inherit;
       margin-bottom: 10px;
+
+      &:focus {
+        outline: 2px solid $bd-input;
+      }
     }
   }
 
