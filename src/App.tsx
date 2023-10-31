@@ -1,15 +1,23 @@
+import { useState } from "react";
+import { initialTasks } from "./model";
+import AddTask from "./components/AddTask";
+
 const App = () => {
+  const [tasks, setTasks] = useState(initialTasks);
+
+  const handleAddTask = (text: string) => {
+    setTasks([...tasks, { id: crypto.randomUUID(), text, done: false }]);
+  };
+
   return (
     <div className="container">
-      <section className="container__tasks">
-        <h1>Todo</h1>
-        <input type="text" />
-        <button>
-          <span className="button-text">+</span>
-        </button>
-      </section>
+      <AddTask onAddTask={handleAddTask} />
       <section className="container__todo-list">
-        <ul>Todo list</ul>
+        <ul>
+          {tasks.map((task) => (
+            <li key={task.id}>{task.text}</li>
+          ))}
+        </ul>
       </section>
     </div>
   );

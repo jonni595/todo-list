@@ -52,6 +52,9 @@ body {
 .container__tasks input:focus {
   outline: 2px solid #817799;
 }
+.container__tasks input::placeholder {
+  color: #b9b4c7;
+}
 .container__tasks button {
   font-size: 30px;
   width: 60px;
