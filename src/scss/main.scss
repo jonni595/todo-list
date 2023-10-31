@@ -70,10 +70,42 @@ body {
         outline: 2px solid $bd-input;
       }
     }
+
+    button {
+      font-size: 30px;
+      @include dimension(60px, 60px);
+      border-radius: 50%;
+      color: #fff;
+      background: $bg-input;
+      border: none;
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      cursor: pointer;
+      animation: float 2s ease-in-out infinite;
+
+      &:hover .button-text {
+        transform: rotate(180deg);
+        display: inline-block;
+        transition: transform 0.5s;
+      }
+    }
   }
 
   &__todo-list {
     @include dimension(100%, inherit);
     @include flex(column, center, center);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

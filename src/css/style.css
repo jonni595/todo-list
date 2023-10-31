@@ -52,6 +52,25 @@ body {
 .container__tasks input:focus {
   outline: 2px solid #817799;
 }
+.container__tasks button {
+  font-size: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #fff;
+  background: #584e71;
+  border: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  cursor: pointer;
+  animation: float 2s ease-in-out infinite;
+}
+.container__tasks button:hover .button-text {
+  transform: rotate(180deg);
+  display: inline-block;
+  transition: transform 0.5s;
+}
 .container__todo-list {
   width: 100%;
   height: inherit;
@@ -59,6 +78,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
