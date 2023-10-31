@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { initialTasks } from "./model";
+import { TasksProps, initialTasks } from "./model";
 import AddTask from "./components/AddTask";
+import { TaskList } from "./components";
 
 const App = () => {
   const [tasks, setTasks] = useState(initialTasks);
@@ -12,16 +13,30 @@ const App = () => {
     setTasks([...tasks, { id: crypto.randomUUID(), text, done: false }]);
   };
 
+  const handleChangeTask = (task: TasksProps) => {
+    setTasks(
+      tasks.map((t) => {
+        if (t.id === task.id) {
+          return task;
+        } else {
+          return t;
+        }
+      })
+    );
+  };
+
+  const handleDeleteTask = (taskId: string) => {
+    setTasks(tasks.filter((t) => t.id !== taskId));
+  };
+
   return (
     <div className="container">
       <AddTask onAddTask={handleAddTask} />
-      <section className="container__todo-list">
-        <ul>
-          {tasks.map((task) => (
-            <li key={task.id}>{task.text}</li>
-          ))}
-        </ul>
-      </section>
+      <TaskList
+        tasks={tasks}
+        onChangeTask={handleChangeTask}
+        onDeleteTask={handleDeleteTask}
+      />
     </div>
   );
 };
