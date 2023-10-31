@@ -37,6 +37,7 @@ body {
 }
 .container__tasks h1 {
   color: #5c5470;
+  font-size: 3rem;
 }
 .container__tasks input {
   width: 50%;
