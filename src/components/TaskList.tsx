@@ -1,4 +1,5 @@
 import { TasksProps } from "../model";
+import Task from "./Task";
 
 interface Task {
   tasks: TasksProps[];
