@@ -4,11 +4,15 @@ $bg-color: #352f44;
 $txt-color: #faf0e6;
 $bg-input: #584e71;
 $bd-input: #817799;
-$ff-base: "Roboto", sans-serif;
+$font: "Roboto", sans-serif;
 
-@mixin dimension($width, $height) {
-  width: $width;
-  height: $height;
+@mixin dimension($width, $height: false) {
+  @if $height == false {
+    width: $width;
+  } @else {
+    width: $width;
+    height: $height;
+  }
 }
 
 @mixin flex($flex-direction, $align-items, $justify-content) {
@@ -28,7 +32,7 @@ $ff-base: "Roboto", sans-serif;
 }
 
 html {
-  font-size: clamp(1.5rem, 8vw - 2rem, 3rem);
+  font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
@@ -36,40 +40,32 @@ body {
   min-height: 100vh;
   background-color: $bg-color;
   color: $txt-color;
-  font-family: $ff-base;
+  font-family: $font;
+  @include flex(row, center, center);
 }
 
 .container {
-  width: 100%;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
-  place-items: center;
+  min-width: 1000px;
+  @include dimension(100%, 100vh);
+  // border: 1px solid tomato;
 
-  &__tasks {
-    @include dimension(100%, inherit);
-    @include flex(column, center, center);
-
-    h1 {
-      color: $primary;
-      font-size: 3rem;
-    }
+  &__input {
+    @include dimension(100%, 100px);
+    @include flex(row, center, center);
+    // border: 1px solid tan;
 
     input {
-      width: 50%;
-      font-size: 18px;
+      @include dimension(300px);
       padding: 10px 15px;
+      outline: none;
       border: none;
-      border-radius: 3px;
-      background: $bg-input;
-      color: $secondary;
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+      font-size: 1.7rem;
       font-family: inherit;
-      margin-bottom: 10px;
-
-      &:focus {
-        outline: 2px solid $bd-input;
-      }
+      letter-spacing: 0.3px;
+      background: $bg-input;
+      color: $txt-color;
 
       &::placeholder {
         color: $secondary;
@@ -77,80 +73,27 @@ body {
     }
 
     button {
-      font-size: 30px;
-      @include dimension(60px, 60px);
-      border-radius: 50%;
-      color: $txt-color;
-      background: $bg-input;
+      font-size: 1.6rem;
       border: none;
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
+      outline: none;
+      padding: 10px 15px;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
       cursor: pointer;
-      animation: float 2s ease-in-out infinite;
+      background: #7c709c;
+      color: $txt-color;
+      transition: background-color 0.2s;
 
-      &:hover .button-text {
-        transform: rotate(180deg);
-        display: inline-block;
-        transition: transform 0.5s;
-      }
-    }
-  }
-
-  &__todo-list {
-    @include dimension(100%, inherit);
-    @include flex(column, center, center);
-
-    ul {
-      list-style: none;
-
-      li {
-        color: $secondary;
-      }
-    }
-
-    .task-list {
-      @include dimension(400px, 50px);
-      @include flex(row, center, flex-start);
-      font-size: 0.4rem;
-
-      button {
-        background: $bg-input;
-        color: $secondary;
-        padding: 5px 10px;
-        border: none;
-        border-radius: 3px;
-        font-weight: 600;
-        font-family: inherit;
-        margin-left: 5px;
-        cursor: pointer;
-      }
-
-      input[type="checkbox"] {
-        margin-right: 10px;
-      }
-
-      input[type="text"] {
-        background: $bg-input;
-        color: $secondary;
-        padding: 5px 10px;
-        border-radius: 3px;
-        border: none;
-        outline: none;
-        font-family: inherit;
+      &:hover {
+        background-color: #4c4462;
       }
     }
   }
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+h1 {
+  text-align: center;
+  font-size: 10rem;
+  margin-top: 10px;
+  color: $primary;
 }
