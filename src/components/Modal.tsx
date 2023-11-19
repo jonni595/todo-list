@@ -1,13 +1,12 @@
 interface ModalProps {
   isOpen: boolean;
-  showModal: () => void;
+  pushNotification: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ isOpen, showModal }) => {
+const Modal: React.FC<ModalProps> = ({ isOpen, pushNotification }) => {
   return (
     <dialog open={isOpen} className="modal">
-      <h2>Complete the fields</h2>
-      <button onClick={showModal}>Close</button>
+      <h2>{pushNotification}</h2>
     </dialog>
   );
 };
