@@ -4,6 +4,8 @@ $bg-color: #352f44;
 $txt-color: #faf0e6;
 $bg-input: #584e71;
 $bd-input: #817799;
+$bg-modal: #f1d0d4;
+$txt-modal: #ce5a67;
 $font: "Roboto", sans-serif;
 
 @mixin dimension($width, $height: false) {
@@ -42,12 +44,14 @@ body {
   color: $txt-color;
   font-family: $font;
   @include flex(row, center, center);
+  position: relative;
 }
 
 .container {
-  min-width: 1000px;
-  @include dimension(100%, 100vh);
-  // border: 1px solid tomato;
+  @include dimension(600px, 100vh);
+  @media (width < 600px) {
+    @include dimension(100%);
+  }
 
   &__input {
     @include dimension(100%, 100px);
@@ -94,6 +98,19 @@ body {
 h1 {
   text-align: center;
   font-size: 10rem;
-  margin-top: 10px;
   color: $primary;
+}
+
+.modal {
+  @include dimension(200px, 50px);
+  @include flex(row, center, center);
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: $bg-modal;
+  opacity: 0.9;
+  color: $txt-modal;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
