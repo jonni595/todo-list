@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Modal } from ".";
 
 interface TimedMessageProps {
   message: string;
@@ -17,7 +18,7 @@ const TimedMessage: React.FC<TimedMessageProps> = ({ message }) => {
     };
   }, [message]);
 
-  return notification && <p>{message}</p>;
+  return notification && <Modal isOpen pushNotification={message} />;
 };
 
 export default TimedMessage;
