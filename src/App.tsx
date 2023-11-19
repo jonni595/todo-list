@@ -38,11 +38,11 @@ const App = () => {
     <main className="container">
       <AddTask onAddTask={handleAddTask} />
       {error !== null && <TimedMessage message={error} />}
-      {/* <TaskList
+      <TaskList
         tasks={tasks}
         onChangeTask={handleChangeTask}
         onDeleteTask={handleDeleteTask}
-      /> */}
+      />
     </main>
   );
 };
