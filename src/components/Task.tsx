@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoPencil, IoTrash, IoSaveSharp } from "react-icons/io5";
 import { TasksProps } from "../model";
 
 interface TaskProps {
@@ -9,35 +10,9 @@ interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({ task, onChange, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
-  let taskContent;
-
-  if (isEditing) {
-    taskContent = (
-      <>
-        <input
-          type="text"
-          value={task.text}
-          onChange={(e) => {
-            onChange({
-              ...task,
-              text: e.target.value,
-            });
-          }}
-        />
-        <button onClick={() => setIsEditing(false)}>Save</button>
-      </>
-    );
-  } else {
-    taskContent = (
-      <>
-        {task.text}
-        <button onClick={() => setIsEditing(true)}>Edit</button>
-      </>
-    );
-  }
 
   return (
-    <div className="task-list">
+    <div className="task">
       <input
         type="checkbox"
         checked={task.done}
@@ -48,8 +23,33 @@ const Task: React.FC<TaskProps> = ({ task, onChange, onDelete }) => {
           });
         }}
       />
-      {taskContent}
-      <button onClick={() => onDelete(task.id)}>Delete</button>
+      {isEditing ? (
+        <>
+          <input
+            type="text"
+            value={task.text}
+            onChange={(e) => {
+              onChange({
+                ...task,
+                text: e.target.value,
+              });
+            }}
+          />
+          <button onClick={() => setIsEditing(false)}>
+            <IoSaveSharp />
+          </button>
+        </>
+      ) : (
+        <>
+          <p>{task.text}</p>
+          <button onClick={() => setIsEditing(true)}>
+            <IoPencil />
+          </button>
+          <button onClick={() => onDelete(task.id)}>
+            <IoTrash />
+          </button>
+        </>
+      )}
     </div>
   );
 };
