@@ -9,7 +9,7 @@ interface Task {
 
 const TaskList: React.FC<Task> = ({ tasks, onChangeTask, onDeleteTask }) => {
   return (
-    <section className="container__todo-list">
+    <section className="container__task-list">
       <ul>
         {tasks.map((task) => (
           <li key={task.id}>
