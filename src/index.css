@@ -1,0 +1,73 @@
+:root {
+  --dark-bg-color: #1a202c;
+  --dark-text-color: #b3b5ba;
+  --dark-title-color: #232934;
+  --dark-bg-input-color: #333;
+  --dark-card-color: #181d29;
+  --dark-placeholder-color: #525b64;
+
+  --light-bg-color: #ffffff;
+  --light-text-color: #86898f;
+  --light-title-color: #1a202c;
+  --light-bg-input-color: #edf2f7;
+  --light-card-color: #ebebeb;
+  --light-placeholder-color: #c5ccd0;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--dark-bg-color);
+}
+
+li {
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-size: 1rem;
+  font-weight: inherit;
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+  text-wrap: balance;
+}
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  color: inherit;
+  display: block;
+}
