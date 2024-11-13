@@ -7,3 +7,7 @@ export interface Tasks {
 export interface LayoutProps {
   children: React.ReactNode;
 }
+
+export interface ThemeContextProps {
+  children: React.ReactNode;
+}
