@@ -18,6 +18,12 @@ export interface TaskListProps {
   onDeleteTask: (id: string) => void;
 }
 
-export interface TasksProps extends TaskListProps {
+export interface TasksProps {
   task: Tasks;
+  onChange: (task: Tasks) => void;
+  onDelete: (id: string) => void;
+}
+
+export interface AddTaskProps {
+  onAddTask: (text: string) => void;
 }
