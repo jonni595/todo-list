@@ -65,3 +65,18 @@
 .footer {
   grid-area: footer;
 }
+
+.dark {
+  --dark-bg-color: #1a202c;
+  --dark-text-color: #b3b5ba;
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+.light {
+  --light-bg-color: #ffffff;
+  --light-text-color: #86898f;
+
+  background-color: var(--light-bg-color);
+  color: var(--light-text-color);
+}
