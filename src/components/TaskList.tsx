@@ -1,4 +1,5 @@
 import type { TaskListProps } from "../interface";
+import Task from "./Task";
 
 const TaskList: React.FC<TaskListProps> = ({
   tasks,
@@ -9,7 +10,13 @@ const TaskList: React.FC<TaskListProps> = ({
     <section className="main">
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>// Tasks</li>
+          <li key={task.id}>
+            <Task
+              task={task}
+              onChange={onChangeTask}
+              onDelete={onDeleteTask}
+            />
+          </li>
         ))}
       </ul>
     </section>
