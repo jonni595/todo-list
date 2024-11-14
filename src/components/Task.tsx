@@ -12,6 +12,7 @@ const Task: React.FC<TasksProps> = ({ task, onChange, onDelete }) => {
     taskContent = (
       <>
         <input
+          className="input-edit-task"
           value={task.text}
           onChange={(e) =>
             onChange({
