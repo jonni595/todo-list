@@ -14,6 +14,7 @@ const AddTask: React.FC<AddTaskProps> = ({ onAddTask }) => {
       />
       <button
         className="btn-add-task"
+        title="Add Task"
         onClick={() => {
           setText("");
           onAddTask(text);
