@@ -11,10 +11,7 @@ const App = () => {
 
   const handleAddTask = (text: string) => {
     if (!text) return;
-    setTasks([
-      ...tasks,
-      { id: crypto.randomUUID(), text: text.toLowerCase(), done: false },
-    ]);
+    setTasks([...tasks, { id: crypto.randomUUID(), text, done: false }]);
   };
 
   const handleChangeTask = (task: Tasks) => {
