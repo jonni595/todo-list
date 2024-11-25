@@ -20,6 +20,7 @@ export const useTask = () => {
 
   return {
     tasks,
+    setTasks,
     handleAddTask,
     handleChangeTask,
     handleDeleteTask,
