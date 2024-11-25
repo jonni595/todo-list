@@ -1,36 +1,28 @@
 import { useState } from "react";
-import { IoAdd } from "react-icons/io5";
-
-interface AddTaskProps {
-  onAddTask: (text: string) => void;
-}
+import { IoAddCircle } from "react-icons/io5";
+import type { AddTaskProps } from "../interface";
 
 const AddTask: React.FC<AddTaskProps> = ({ onAddTask }) => {
   const [text, setText] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
-  };
-
   return (
-    <>
-      <h1>Todo</h1>
-      <section className="container__input">
-        <input
-          value={text}
-          placeholder="create new task"
-          onChange={handleChange}
-        />
-        <button
-          onClick={() => {
-            setText("");
-            onAddTask(text);
-          }}
-        >
-          <IoAdd />
-        </button>
-      </section>
-    </>
+    <div className="footer">
+      <input
+        className="input-add-task"
+        placeholder="Write a task..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <button
+        className="btn-add-task"
+        title="Add Task"
+        onClick={() => {
+          setText("");
+          onAddTask(text);
+        }}
+      >
+        <IoAddCircle />
+      </button>
+    </div>
   );
 };
 

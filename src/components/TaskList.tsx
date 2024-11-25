@@ -1,18 +1,24 @@
-import { TasksProps } from "../model";
+import { useTheme } from "../hooks/useTheme";
+import type { TaskListProps } from "../interface";
 import Task from "./Task";
 
-interface Task {
-  tasks: TasksProps[];
-  onChangeTask: (task: TasksProps) => void;
-  onDeleteTask: (id: string) => void;
-}
+const TaskList: React.FC<TaskListProps> = ({
+  tasks,
+  onChangeTask,
+  onDeleteTask,
+}) => {
+  const { theme } = useTheme();
 
-const TaskList: React.FC<Task> = ({ tasks, onChangeTask, onDeleteTask }) => {
   return (
-    <section className="container__task-list">
+    <section className="main">
       <ul>
         {tasks.map((task) => (
-          <li key={task.id}>
+          <li
+            key={task.id}
+            style={{
+              backgroundColor: `${theme === "light" ? "#181d29" : "#edf2f7"}`,
+            }}
+          >
             <Task task={task} onChange={onChangeTask} onDelete={onDeleteTask} />
           </li>
         ))}
@@ -21,4 +27,4 @@ const TaskList: React.FC<Task> = ({ tasks, onChangeTask, onDeleteTask }) => {
   );
 };
 
-export { TaskList };
+export default TaskList;

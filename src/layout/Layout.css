@@ -1,0 +1,156 @@
+.layout {
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+
+  display: grid;
+  grid:
+    "header" auto
+    "main" 1fr
+    "footer" auto
+    / 1fr;
+  gap: 8px;
+  padding: 1rem;
+  transition: all 0.3s ease, color 0.3s ease;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header .btn {
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: 0px 1px 10px 1.5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main ul {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main li {
+  background: #101725;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer .input-add-task {
+  width: 100%;
+  max-width: 250px;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid #1a202c;
+  transition: max-width 0.3s, border 0.2s;
+}
+
+.footer .input-add-task:focus {
+  max-width: 750px;
+  border: 2px solid #4c5464;
+}
+
+.footer .input-add-task:hover {
+  border: 2px solid #4c5464;
+}
+
+.footer .btn-add-task {
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+  color: inherit;
+  background-color: transparent;
+  transition: all 0.3s ease;
+  transform: translate(0, 3px);
+
+  &:hover {
+    color: #4c5464;
+  }
+}
+
+.dark {
+  --dark-bg-color: #1a202c;
+  --dark-text-color: #b3b5ba;
+  background-color: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+.light {
+  --light-bg-color: #ffffff;
+  --light-text-color: #86898f;
+
+  background-color: var(--light-bg-color);
+  color: var(--light-text-color);
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.2rem 1rem;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+}
+
+.task-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.2rem;
+}
+
+.btn-icon,
+.button {
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: inherit;
+  background-color: transparent;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.input-edit-task {
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid #1a202c;
+  transition: max-width 0.3s, border 0.2s;
+}
