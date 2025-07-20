@@ -5,7 +5,7 @@ export default function TitleTasks({ count }: { count: number }) {
   return (
     <div
       className={clsx(
-        "w-full h-28 sm:h-auto",
+        "w-full h-28 mb-8 sm:h-auto",
         "flex flex-col items-center justify-around sm:flex-row sm:justify-between"
       )}
     >
