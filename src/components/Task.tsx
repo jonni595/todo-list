@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LucideSquareCheckBig } from "lucide-react";
 import { Button } from "./ui/button";
-import { DropdownActions } from "./DropDownActions";
+import { DropdownActions } from "./DropdownActions";
 import { type Status, type TaskProps, type Priority } from "../lib/definitions";
 import {
   Select,
