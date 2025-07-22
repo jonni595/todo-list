@@ -24,8 +24,8 @@ export default function TitleTasks({ count }: { count: number }) {
           Here's a list of your tasks.
         </h6>
       </div>
-      <Badge variant="secondary" className="sm:text-sm">
-        Total: {count}
+      <Badge variant="outline" className="sm:text-sm">
+        Total: <Badge className="h-5 min-w-5 rounded-full px-1">{count}</Badge>
       </Badge>
     </div>
   );

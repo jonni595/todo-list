@@ -68,7 +68,10 @@ export default function App() {
       <TitleTasks count={totalTasks} />
       <FilterTasks
         onAddTask={handleAddTask}
-        onSelect={(value) => setTaskStatus(value)}
+        onSelect={(value) => {
+          setTaskStatus(value);
+          console.log(value);
+        }}
         query={filterText}
         onFilterTask={(value) => setFilterText(value)}
       />
