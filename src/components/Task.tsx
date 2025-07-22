@@ -57,9 +57,9 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="in progress">In Progress</SelectItem>
-            <SelectItem value="pending">Pending</SelectItem>
-            <SelectItem value="done">Done</SelectItem>
+            <SelectItem value="In progress">In Progress</SelectItem>
+            <SelectItem value="Pending">Pending</SelectItem>
+            <SelectItem value="Done">Done</SelectItem>
           </SelectContent>
         </Select>
         {/* Priority */}

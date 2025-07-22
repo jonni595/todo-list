@@ -9,7 +9,7 @@ const initialTasks: TasksProps[] = [
     id: crypto.randomUUID(),
     text: "We need to program the back-end THX pixel!",
     priority: "Medium",
-    status: "pending",
+    status: "Pending",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function App() {
       id: crypto.randomUUID(),
       text: task.text,
       priority: task.priority,
-      status: "pending" as Status,
+      status: "Pending" as Status,
     };
     setTasks([...tasks, newTask]);
   };

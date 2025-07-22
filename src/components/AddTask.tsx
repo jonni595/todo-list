@@ -24,7 +24,7 @@ export default function AddTask({
     id: crypto.randomUUID(),
     text: "",
     priority: "Low",
-    status: "pending",
+    status: "Pending",
   });
 
   const { text, priority } = task;
@@ -64,7 +64,7 @@ export default function AddTask({
                 id: crypto.randomUUID(),
                 text: "",
                 priority: "Low",
-                status: "pending",
+                status: "Pending",
               });
             }}
           >
