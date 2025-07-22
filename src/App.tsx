@@ -52,9 +52,11 @@ export default function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
+  const totalTasks = tasks.length;
+
   return (
     <div className="max-w-7xl min-h-screen m-auto p-5 border border-l-zinc-800 border-r-zinc-800">
-      <TitleTasks count={5} />
+      <TitleTasks count={totalTasks} />
       <FilterTasks onAddTask={handleAddTask} />
       <TasksList
         tasks={tasks}

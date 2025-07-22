@@ -7,9 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-type Status = "In Progress" | "Pending" | "Done";
-type Priority = "low" | "medium" | "high";
+import type { Priority, Status } from "@/lib/definitions";
 
 type TaskValue = Status | Priority | "All";
 

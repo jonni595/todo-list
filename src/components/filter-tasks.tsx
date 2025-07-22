@@ -6,7 +6,7 @@ import type { FilterTaskProps } from "@/lib/definitions";
 export default function FilterTasks({ onAddTask }: FilterTaskProps) {
   return (
     <div className="flex justify-between mb-5">
-      <div className="flex space-x-2 w-96">
+      <div className="flex space-x-2 w-md border">
         <Input placeholder="Filter tasks..." />
         <SelectStatus
           placeholder="Status"
@@ -16,7 +16,7 @@ export default function FilterTasks({ onAddTask }: FilterTaskProps) {
         <SelectStatus
           placeholder="Priority"
           label="Priority"
-          items={["low", "medium", "high"]}
+          items={["Low", "Medium", "High"]}
         />
       </div>
       <AddTask onAddTask={onAddTask} />

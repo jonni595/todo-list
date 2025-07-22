@@ -1,5 +1,5 @@
 export type Priority = "Low" | "Medium" | "High";
-export type Status = "In progress" | "Pending" | "Done";
+export type Status = "In Progress" | "Pending" | "Done";
 
 export interface TasksProps {
   id: `${string}-${string}-${string}-${string}-${string}`;
