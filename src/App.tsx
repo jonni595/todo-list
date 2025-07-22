@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FilterTasks from "./components/filter-tasks";
 import TasksList from "./components/TasksList";
 import TitleTasks from "./components/title-tasks";
@@ -14,9 +14,17 @@ const initialTasks: TasksProps[] = [
 ];
 
 export default function App() {
-  const [tasks, setTasks] = useState<TasksProps[]>(initialTasks);
+  const [tasks, setTasks] = useState<TasksProps[]>(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : initialTasks;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleAddTask = (task: TasksProps) => {
+    if (!task.text) return;
     const newTask = {
       id: crypto.randomUUID(),
       text: task.text,
@@ -38,6 +46,12 @@ export default function App() {
     setTasks(updatedTask);
   };
 
+  const handleDeleteTask = (
+    id: `${string}-${string}-${string}-${string}-${string}`
+  ) => {
+    setTasks(tasks.filter((t) => t.id !== id));
+  };
+
   return (
     <div className="max-w-7xl min-h-screen m-auto p-5 border border-l-zinc-800 border-r-zinc-800">
       <TitleTasks count={5} />
@@ -45,7 +59,7 @@ export default function App() {
       <TasksList
         tasks={tasks}
         onChangeTasks={handleChangeTask}
-        onDeleteTask={() => {}}
+        onDeleteTask={handleDeleteTask}
       />
     </div>
   );
