@@ -79,7 +79,8 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
           </SelectContent>
         </Select>
         <DropdownActions
-          onDeleteTask={() => onDeleteTask}
+          taskId={task.id}
+          onDeleteTask={onDeleteTask}
           setEditing={() => setIsEditing(true)}
         />
       </div>

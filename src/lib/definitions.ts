@@ -11,13 +11,17 @@ export interface TasksProps {
 export interface TaskProps {
   task: TasksProps;
   onChangeTask: (task: TasksProps) => void;
-  onDeleteTask: (id: string) => void;
+  onDeleteTask: (
+    id: `${string}-${string}-${string}-${string}-${string}`
+  ) => void;
 }
 
 export interface TaskListProps {
   tasks: TasksProps[];
   onChangeTasks: (task: TasksProps) => void;
-  onDeleteTask: (id: string) => void;
+  onDeleteTask: (
+    id: `${string}-${string}-${string}-${string}-${string}`
+  ) => void;
 }
 
 export interface FilterTaskProps {

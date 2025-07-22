@@ -9,11 +9,15 @@ import {
 import { LucideTrash, LucidePencil } from "lucide-react";
 
 export function DropdownActions({
+  taskId,
   setEditing,
   onDeleteTask,
 }: {
   setEditing: (edit: boolean) => void;
-  onDeleteTask: (id: number) => void;
+  onDeleteTask: (
+    id: `${string}-${string}-${string}-${string}-${string}`
+  ) => void;
+  taskId: `${string}-${string}-${string}-${string}-${string}`;
 }) {
   return (
     <DropdownMenu>
@@ -28,7 +32,7 @@ export function DropdownActions({
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="text-red-400 hover:bg-red-600"
-          onClick={() => onDeleteTask}
+          onClick={() => onDeleteTask(taskId)}
         >
           <LucideTrash size={18} className="text-red-400" /> Delete
         </DropdownMenuItem>
