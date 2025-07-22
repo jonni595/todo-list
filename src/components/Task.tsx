@@ -47,6 +47,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
     <div className="w-full flex justify-between items-center px-2 py-3">
       <div className="flex w-3/5">{content}</div>
       <div className="flex justify-around items-center w-2/5">
+        {/* Status */}
         <Select
           value={task.status}
           onValueChange={(value) =>

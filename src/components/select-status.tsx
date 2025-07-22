@@ -7,26 +7,30 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import type { Priority, Status } from "@/lib/definitions";
-
-type TaskValue = Status | Priority | "All";
+import type { TaskValue } from "@/lib/definitions";
 
 interface Props {
   placeholder: string;
   label: string;
   items: TaskValue[];
+  onSelect: (value: TaskValue) => void;
 }
 
-export default function SelectStatus({ placeholder, label, items }: Props) {
+export default function SelectStatus({
+  placeholder,
+  label,
+  items,
+  onSelect,
+}: Props) {
   return (
-    <Select>
+    <Select onValueChange={(value) => onSelect(value as TaskValue)}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
           <SelectLabel>{label}</SelectLabel>
-          <SelectItem value="empty">All</SelectItem>
+          <SelectItem value="All">All</SelectItem>
           {items.map((item) => (
             <SelectItem key={item} value={item}>
               {item}

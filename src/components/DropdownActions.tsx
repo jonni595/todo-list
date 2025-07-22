@@ -6,7 +6,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LucideTrash, LucidePencil } from "lucide-react";
+import { LucideTrash, LucidePencil, LucideEllipsis } from "lucide-react";
 
 export function DropdownActions({
   taskId,
@@ -22,7 +22,9 @@ export function DropdownActions({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline">...</Button>
+        <Button variant="outline">
+          <LucideEllipsis />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="start">
         <DropdownMenuItem onClick={() => setEditing(true)}>

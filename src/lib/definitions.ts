@@ -1,5 +1,6 @@
 export type Priority = "Low" | "Medium" | "High";
 export type Status = "In Progress" | "Pending" | "Done";
+export type TaskValue = Status | Priority | "All";
 
 export interface TasksProps {
   id: `${string}-${string}-${string}-${string}-${string}`;
@@ -26,4 +27,7 @@ export interface TaskListProps {
 
 export interface FilterTaskProps {
   onAddTask: (task: TasksProps) => void;
+  onSelect: (value: TaskValue) => void;
+  query: string;
+  onFilterTask: (query: string) => void;
 }

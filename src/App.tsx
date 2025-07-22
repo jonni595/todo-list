@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import FilterTasks from "./components/filter-tasks";
 import TasksList from "./components/TasksList";
 import TitleTasks from "./components/title-tasks";
-import type { TasksProps, Status } from "./lib/definitions";
+import type { Status, TasksProps, TaskValue } from "./lib/definitions";
+import { filterItems } from "./lib/utils";
 
 const initialTasks: TasksProps[] = [
   {
@@ -18,6 +19,9 @@ export default function App() {
     const savedTasks = localStorage.getItem("tasks");
     return savedTasks ? JSON.parse(savedTasks) : initialTasks;
   });
+
+  const [taskStatus, setTaskStatus] = useState<TaskValue>("All");
+  const [filterText, setFilterText] = useState("");
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -52,14 +56,24 @@ export default function App() {
     setTasks(tasks.filter((t) => t.id !== id));
   };
 
-  const totalTasks = tasks.length;
+  const filterTasks = taskStatus
+    ? tasks.filter((t) => t.status === taskStatus || t.priority === taskStatus)
+    : tasks;
+  const filteredTasks = taskStatus === "All" ? tasks : filterTasks;
+
+  const totalTasks = filteredTasks.length;
 
   return (
     <div className="max-w-7xl min-h-screen m-auto p-5 border border-l-zinc-800 border-r-zinc-800">
       <TitleTasks count={totalTasks} />
-      <FilterTasks onAddTask={handleAddTask} />
+      <FilterTasks
+        onAddTask={handleAddTask}
+        onSelect={(value) => setTaskStatus(value)}
+        query={filterText}
+        onFilterTask={(value) => setFilterText(value)}
+      />
       <TasksList
-        tasks={tasks}
+        tasks={filterItems(filteredTasks, filterText)}
         onChangeTasks={handleChangeTask}
         onDeleteTask={handleDeleteTask}
       />
