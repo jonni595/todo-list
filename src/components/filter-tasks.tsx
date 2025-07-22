@@ -1,10 +1,11 @@
 import { Input } from "@/components/ui/input";
 import SelectStatus from "./select-status";
 import AddTask from "./AddTask";
+import type { FilterTaskProps } from "@/lib/definitions";
 
-export default function FilterTasks() {
+export default function FilterTasks({ onAddTask }: FilterTaskProps) {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between mb-5">
       <div className="flex space-x-2 w-96">
         <Input placeholder="Filter tasks..." />
         <SelectStatus
@@ -18,7 +19,7 @@ export default function FilterTasks() {
           items={["low", "medium", "high"]}
         />
       </div>
-      <AddTask onAddTask={() => {}} />
+      <AddTask onAddTask={onAddTask} />
     </div>
   );
 }

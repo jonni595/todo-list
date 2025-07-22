@@ -10,7 +10,7 @@ export default function TasksList({
     <div className="w-full flex">
       <ul className="w-full">
         {tasks.map((task) => (
-          <li key={task.id}>
+          <li key={task.id} className="border border-zinc-800">
             <Task
               task={task}
               onChangeTask={onChangeTasks}

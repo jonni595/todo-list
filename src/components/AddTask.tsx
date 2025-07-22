@@ -10,21 +10,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
+import type { TasksProps } from "@/lib/definitions";
 
 type Priority = "Low" | "Medium" | "High";
-
-interface Props {
-  text: string;
-  priority: Priority;
-}
 
 export default function AddTask({
   onAddTask,
 }: {
-  onAddTask: (task: Props) => void;
+  onAddTask: (task: TasksProps) => void;
 }) {
   const [isActive, setIsActive] = useState(false);
-  const [task, setTask] = useState<Props>({ text: "", priority: "Low" });
+  const [task, setTask] = useState<TasksProps>({
+    id: crypto.randomUUID(),
+    text: "",
+    priority: "Low",
+    status: "pending",
+  });
 
   const { text, priority } = task;
 
@@ -58,15 +59,22 @@ export default function AddTask({
           <Button
             onClick={() => {
               setIsActive(false);
-              onAddTask({ text, priority });
-              setTask({ text: "", priority: "Low" });
+              onAddTask({ ...task, id: crypto.randomUUID() });
+              setTask({
+                id: crypto.randomUUID(),
+                text: "",
+                priority: "Low",
+                status: "pending",
+              });
             }}
           >
             Save Task
           </Button>
         </>
       ) : (
-        <Button onClick={() => setIsActive(true)}>Add Tasks</Button>
+        <>
+          <Button onClick={() => setIsActive(true)}>Add Tasks</Button>
+        </>
       )}
     </div>
   );
