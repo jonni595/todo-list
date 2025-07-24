@@ -11,7 +11,7 @@ export default function FilterTasks({
 }: FilterTaskProps) {
   return (
     <div className="flex justify-between mb-5">
-      <div className="flex space-x-2 w-md border">
+      <div className="flex space-x-2 w-sm sm:w-md">
         <Input
           placeholder="Filter tasks..."
           value={query}

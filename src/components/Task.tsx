@@ -38,7 +38,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
   } else {
     content = (
       <>
-        <p>{task.text}</p>
+        <p className="text-sm text-balance lg:text-base">{task.text}</p>
       </>
     );
   }
@@ -54,7 +54,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
             onChangeTask({ ...task, status: value as Status })
           }
         >
-          <SelectTrigger className="w-[120px]">
+          <SelectTrigger className="md:w-[120px] w-[90px]">
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
@@ -70,7 +70,7 @@ export default function Task({ task, onChangeTask, onDeleteTask }: TaskProps) {
             onChangeTask({ ...task, priority: value as Priority })
           }
         >
-          <SelectTrigger className="w-[120px]">
+          <SelectTrigger className="md:w-[120px] w-[90px]">
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
